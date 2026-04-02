@@ -1,1 +1,80 @@
+# Telangana District Map Coloring using CSP
 
+This project implements the Map Coloring Problem for the 33 districts of Telangana using a Constraint Satisfaction Problem (CSP) approach with backtracking.
+
+---
+
+## Problem Description
+
+The objective is to assign colors to each district such that:
+
+- Each district is assigned one color  
+- No two adjacent districts share the same color  
+
+---
+
+## Approach
+
+The problem is modeled as a CSP with:
+
+- **Variables:** 33 districts of Telangana  
+- **Domains:** {Red, Green, Blue, Yellow}  
+- **Constraints:** Neighboring districts must have different colors  
+
+A backtracking search algorithm is used to find a valid assignment.
+
+---
+
+## Districts Covered
+
+Adilabad, Bhadradri, Hyderabad, Jagtial, Jangaon, Jayashankar,  
+Jogulamba, Kamareddy, Karimnagar, Khammam, Komaram Bheem,  
+Mahabubabad, Mahabubnagar, Mancherial, Medak, Medchal,  
+Mulugu, Nagarkurnool, Nalgonda, Narayanpet, Nirmal,  
+Nizamabad, Peddapalli, Rajanna, Rangareddy, Sangareddy,  
+Siddipet, Suryapet, Vikarabad, Wanaparthy, Warangal Rural,  
+Warangal Urban, Yadadri  
+
+---
+
+## Constraints (Adjacency)
+
+Each district is connected to its neighboring districts.
+
+- Adjacent districts must have different colors  
+- Graph-based representation is used  
+
+Note: Adjacency relationships are simplified approximations.
+
+---
+
+## Features
+
+- Handles large CSP (33 variables)  
+- Uses 4 colors for guaranteed solution  
+- Backtracking-based solution  
+- Scalable design  
+
+---
+
+## Example Output
+Adilabad -> Red
+Nizamabad -> Green
+Karimnagar -> Blue
+...
+
+---
+
+## Limitations
+
+- Adjacency is approximate  
+- Not GIS-accurate  
+- Multiple valid solutions exist  
+
+---
+
+## Concepts Used
+
+- Constraint Satisfaction Problems (CSP)  
+- Backtracking Search  
+- Graph Theory  
