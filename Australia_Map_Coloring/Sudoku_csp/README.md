@@ -1,66 +1,32 @@
-# Cryptarithmetic Puzzle (TWO + TWO = FOUR)
+Sudoku Solver using CSP
+This project implements a Sudoku solver using the Constraint Satisfaction Problem (CSP) approach with backtracking.
 
-This project solves the cryptarithmetic puzzle using a Constraint Satisfaction Problem (CSP) approach.
+Problem Description
+Solve a 9×9 Sudoku grid such that:
 
----
+Each row contains digits 1–9 exactly once
+Each column contains digits 1–9 exactly once
+Each 3×3 subgrid contains digits 1–9 exactly once
+Approach
+The Sudoku is modeled as a CSP:
 
-## Problem Description
+Variables: 81 cells (grid positions)
+Domain: {1–9}
+Constraints:
+Row constraint
+Column constraint
+3×3 subgrid constraint
+Backtracking is used to fill empty cells.
 
-Solve the equation:
+Features
+Solves standard 9×9 Sudoku
+Ensures all constraints are satisfied
+Uses recursive backtracking
+Efficient and simple implementation
+Example Output
+[5, 3, 4, 6, 7, 8, 9, 1, 2] [6, 7, 2, 1, 9, 5, 3, 4, 8] ...
 
-  T W O  
-+ T W O  
---------  
-F O U R  
-
-Each letter represents a unique digit.
-
----
-
-## Approach
-
-The problem is modeled as a CSP:
-
-- **Variables:** T, W, O, F, U, R  
-- **Domain:** {0–9}  
-- **Constraints:**  
-  - All letters must have unique digits  
-  - Leading digits (T and F) cannot be zero  
-  - Arithmetic equation must be satisfied  
-
-A brute-force backtracking approach is used.
-
----
-
-## Constraints Explanation
-
-Column-wise addition:
-
-- O + O = R (with carry)  
-- W + W + carry = U  
-- T + T + carry = O  
-- Final carry = F  
-
----
-
-## Features
-
-- Unique digit assignment  
-- Handles carry logic  
-- Backtracking with permutations  
-- Simple and clear implementation  
-
----
-
-## Example Output
-TWO = 734
-FOUR = 1468
-
----
-
-## Concepts Used
-
-- Constraint Satisfaction Problems (CSP)  
-- Backtracking Search  
-- Permutations  
-- Arithmetic Constraints  
+Concepts Used
+Constraint Satisfaction Problems (CSP)
+Backtracking Search
+Recursive Algorithms
