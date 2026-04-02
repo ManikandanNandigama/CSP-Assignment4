@@ -1,43 +1,21 @@
-states = ["WA", "NT", "Q", "SA", "NSW", "V", "T"]
+import itertools
 
-neighbors = {
-    "WA": ["NT", "SA"],
-    "NT": ["WA", "SA", "Q"],
-    "Q": ["NT", "SA", "NSW"],
-    "SA": ["WA", "NT", "Q", "NSW", "V"],
-    "NSW": ["Q", "SA", "V"],
-    "V": ["SA", "NSW"],
-    "T": []
-}
+letters = "TWOFUR"
+digits = range(10)
 
-colors = ["Red", "Green", "Blue"]
-solution = {}
-
-def is_safe(state, color):
-    for n in neighbors[state]:
-        if n in solution and solution[n] == color:
-            return False
-    return True
-
-def solve(index):
-    if index == len(states):
-        return True
+for perm in itertools.permutations(digits, len(letters)):
+    t, w, o, f, u, r = perm
     
-    state = states[index]
+    if t == 0 or f == 0:
+        continue
     
-    for color in colors:
-        if is_safe(state, color):
-            solution[state] = color
-            
-            if solve(index + 1):
-                return True
-            
-            del solution[state]
+    two = 100*t + 10*w + o
+    four = 1000*f + 100*o + 10*u + r
     
-    return False
-
-solve(0)
-
-print("Australia Map Coloring Solution:")
-for s in solution:
-    print(s, "->", solution[s])
+    if two + two == four:
+        print("Solution Found:")
+        print("T =", t, "W =", w, "O =", o)
+        print("F =", f, "U =", u, "R =", r)
+        print("TWO =", two)
+        print("FOUR =", four)
+        break
